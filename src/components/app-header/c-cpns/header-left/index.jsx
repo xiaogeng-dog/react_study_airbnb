@@ -1,10 +1,21 @@
-import React, { memo } from 'react'
-import { LeftWrapper } from './style'
+import IconLogo from "@/assets/svg/icon_logo";
+import React, { memo } from "react";
+import { useNavigate } from "react-router-dom";
+import { LeftWrapper } from "./style";
 
 const HeaderLeft = memo(() => {
-  return (
-    <LeftWrapper>HeaderLeft</LeftWrapper>
-  )
-})
+  const navigate = useNavigate();
+  function backHomeHandle() {
+    navigate("/home");
+  }
 
-export default HeaderLeft
+  return (
+    <LeftWrapper>
+      <div className="logo" onClick={backHomeHandle}>
+        <IconLogo />
+      </div>
+    </LeftWrapper>
+  );
+});
+
+export default HeaderLeft;
